@@ -1,0 +1,31 @@
+var form = document.getElementById('my_form');
+
+form.onsubmit = function (e) {
+    e.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var question = document.getElementById('question').value;
+
+    window.parent.postMessage({
+        type: "SET_NAME",
+        name: name
+    }, "*");
+    window.parent.postMessage({
+        type: "SET_EMAIL",
+        email: email
+    }, "*");
+    window.parent.postMessage({
+        type: "SET_PHONE",
+        phone: phone
+    }, "*");
+    window.parent.postMessage({
+        type: "ADD_CUSTOM_DATA",
+        name: 'question',
+        value: question
+    }, "*");
+    window.parent.postMessage({
+        type: "ENQUEUE"
+    }, "*");
+};
