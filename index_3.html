@@ -84,11 +84,7 @@
                             
           const contact = `email: ${document.getElementById('email').value}, phone: ${document.getElementById('phone').value}, name: ${document.getElementById('name').value}`
           const message = document.getElementById('message').val   
-          window.parent.postMessage({
-              type: "OFFLINE_ACTION",
-              contact,
-              message
-          }, "*");
+          window.parent.postMessage({type: "OFFLINE_ACTION", contact, message}, "*");
       };
     </script>
   </body>
