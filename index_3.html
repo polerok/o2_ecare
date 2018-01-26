@@ -82,8 +82,8 @@
       form.onsubmit = function (e) {
         e.preventDefault();
                             
-          const contact = `email: ${document.getElementById('email').value}, phone: ${document.getElementById('phone').value}, name: ${document.getElementById('name').value}`
-          const message = document.getElementById('message').value 
+          const contact = `email: ${document.getElementById('email').value}, phone: ${document.getElementById('phone').value}, name: ${document.getElementById('name').value}`;
+          const message = document.getElementById('message').value;
           window.parent.postMessage({type: "OFFLINE_ACTION", contact, message}, "*");
       };
     </script>
