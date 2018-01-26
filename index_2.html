@@ -63,17 +63,14 @@
     </div>
     <form id="custom_form">
       <div class="whiteBox">
-        <label class="customLabel" for="contact">Email/Telephone</label>
-        <input
-          required
-          class="customInput"
-          id="contact"
-               ></input>
-        <label class="customLabel" for="message">Message</label>
-        <textarea
-           required
-           class="customTextArea"
-           id="message"></textarea>
+        <label class="customLabel" for="name">Jméno</label>
+          <input required class="customInput" id="name"></input>
+        <label class="customLabel" for="email">E-mail</label>
+          <input required class="customInput" id="email"></input>
+        <label class="customLabel" for="phone">Telefon</label>
+          <input required class="customInput" id="phone"></input>
+        <label class="customLabel" for="message">Otázka</label>
+          <textarea required class="customTextArea" id="message"></textarea>
       </div>
       <button class="btn btn-info btn-block" type="submit">Send</button>
     </form>
@@ -84,12 +81,16 @@
       const form = document.getElementById('custom_form');
       form.onsubmit = function (e) {
         e.preventDefault();
-          const contact = document.getElementById('contact').value;
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
           const message = document.getElementById('message').value;
 
           window.parent.postMessage({
               type: "OFFLINE_ACTION",
-              contact,
+              name,
+              email,
+              phone,
               message
           }, "*");
       };
